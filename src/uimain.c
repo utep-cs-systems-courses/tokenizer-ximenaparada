@@ -16,8 +16,7 @@ int main()
 
     putchar('$');
     fgets(input, 100, stdin);
-    char **tokens = tokenize(input);
-
+    
     if(input[0] == '!'){
       if(input[1] == 'q'){
 	break;
@@ -33,6 +32,8 @@ int main()
     }
     
     else {
+      
+      char **tokens = tokenize(input);
       add_history(history, input);
       print_tokens(tokens);
       free_tokens(tokens);

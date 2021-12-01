@@ -117,7 +117,7 @@ char **tokenize(char* str){
   void print_tokens(char **tokens){
     int i = 0;
     while(tokens[i]){
-      printf("token [%d] = %s\n", i, tokens[i]);
+      printf("\t\ttoken [%d] = %s\n", i, tokens[i]);
       i++;
     }
   }
@@ -138,6 +138,6 @@ char **tokenize(char* str){
     char *end = word_terminator(str);
     int len = 0;
     len = end - start;
-    printf("size = %d", len);
+    // printf("size = %d", len);
     return len;
   }

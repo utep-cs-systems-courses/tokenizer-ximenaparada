@@ -21,16 +21,25 @@ void add_history(List *list, char *str){
   start = word_start(str);
   end = word_terminator(start);
 
-  // looping until it reaches next null...
-  while(currNode){
-    currNode = currNode -> next;
-    curr++;
+  if(currNode == NULL){
+    Item *temp = malloc(sizeof(Item));
+    temp -> id = curr;
+    temp -> str = str;
+    temp -> next = NULL;
+    currNode = temp;
+  } else {
+    // looping until it reaches next null...
+    while(currNode->next){
+      currNode = currNode -> next;
+      curr++;
+    }
+    
+    Item *temp = malloc(sizeof(Item));
+    temp -> id = curr;
+    temp -> str = str;
+    temp -> next = NULL;
+    currNode -> next = temp;
   }
-  Item *temp = malloc(sizeof(Item));
-  temp -> id = curr;
-  temp -> str = str;
-  temp -> next = NULL;
-  currNode -> next = temp;
 }
 
 /* Retrieve the string stored in the node where Item->id == id.
